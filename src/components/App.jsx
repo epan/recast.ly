@@ -3,9 +3,28 @@ class App extends React.Component {
     super (props);
     this.API_KEY = window.YOUTUBE_API_KEY;
     this.state = {
-      video: window.exampleVideoData[0],
-      videoList: window.exampleVideoData
+      video: {},
+      videoList: []
     };
+  }
+
+  componentDidMount () {
+    this.getYouTubeVideos(this.API_KEY, 'cats', 5);
+  }
+
+  getYouTubeVideos (key, query, max) {
+    var options = {
+      key: key,
+      query: query,
+      max: max
+    };
+
+    this.props.searchYouTube(options, (data) => {
+      this.setState({
+        video: data[0],
+        videoList: data
+      });
+    });
   }
 
   handleVideoTitleClick (video) {
