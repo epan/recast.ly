@@ -7,8 +7,9 @@ class App extends React.Component {
   }
 
   handleVideoTitleClick (video) {
-    console.log('Title was clicked');
-    console.log('Video was: ', video.snippet.title);
+    this.setState({
+      video: video
+    });
   }
 
   render () {
@@ -20,7 +21,7 @@ class App extends React.Component {
         </div>
         <div className="col-md-5">
           <VideoList
-            handleVideoTitleClick={this.handleVideoTitleClick}
+            handleVideoTitleClick={this.handleVideoTitleClick.bind(this)}
             videos={window.exampleVideoData}
           />
         </div>
