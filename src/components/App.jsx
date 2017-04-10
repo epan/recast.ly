@@ -2,8 +2,13 @@ class App extends React.Component {
   constructor (props) {
     super (props);
     this.state = {
-      
+      video: window.exampleVideoData[0]
     };
+  }
+
+  handleVideoTitleClick (video) {
+    console.log('Title was clicked');
+    console.log('Video was: ', video.snippet.title);
   }
 
   render () {
@@ -11,10 +16,13 @@ class App extends React.Component {
       <div>
         <Nav />
         <div className="col-md-7">
-          <VideoPlayer video={window.exampleVideoData[0]}/>
+          <VideoPlayer video={this.state.video}/>
         </div>
         <div className="col-md-5">
-          <VideoList videos={window.exampleVideoData}/>
+          <VideoList
+            handleVideoTitleClick={this.handleVideoTitleClick}
+            videos={window.exampleVideoData}
+          />
         </div>
       </div>
     );
