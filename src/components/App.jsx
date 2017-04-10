@@ -1,6 +1,7 @@
 class App extends React.Component {
   constructor (props) {
     super (props);
+    this.API_KEY = window.YOUTUBE_API_KEY;
     this.state = {
       video: window.exampleVideoData[0]
     };
