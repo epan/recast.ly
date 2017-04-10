@@ -3,7 +3,8 @@ class App extends React.Component {
     super (props);
     this.API_KEY = window.YOUTUBE_API_KEY;
     this.state = {
-      video: window.exampleVideoData[0]
+      video: window.exampleVideoData[0],
+      videoList: window.exampleVideoData
     };
   }
 
@@ -23,7 +24,7 @@ class App extends React.Component {
         <div className="col-md-5">
           <VideoList
             handleVideoTitleClick={this.handleVideoTitleClick.bind(this)}
-            videos={window.exampleVideoData}
+            videos={this.state.videoList}
           />
         </div>
       </div>
