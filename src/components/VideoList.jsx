@@ -1,14 +1,14 @@
-var VideoList = () => (
+var VideoList = ({videos}) => (
   <div className="video-list media">
+    <VideoListEntry video={videos[0]}/>
+    {/* <VideoListEntry />
     <VideoListEntry />
     <VideoListEntry />
     <VideoListEntry />
     <VideoListEntry />
     <VideoListEntry />
     <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
-    <VideoListEntry />
+    <VideoListEntry /> */}
   </div>
 );
 
