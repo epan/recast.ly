@@ -33,10 +33,15 @@ class App extends React.Component {
     });
   }
 
+  handleSearchInputChange (input) {
+    console.dir(input);
+    this.getYouTubeVideos(this.API_KEY, input, 5);
+  }
+
   render () {
     return (
       <div>
-        <Nav />
+        <Nav handleSearchInputChange={this.handleSearchInputChange.bind(this)}/>
         <div className="col-md-7">
           <VideoPlayer video={this.state.video}/>
         </div>
